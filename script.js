@@ -1,63 +1,218 @@
-document.addEventListener("DOMContentLoaded", function () {
-
-    // BOTÃO SEGREDO
-    const botao = document.querySelector(".segredo");
-    const mensagem = document.getElementById("mensagemSecreta");
-
-    if (botao && mensagem) {
-        botao.addEventListener("click", function () {
-            mensagem.classList.toggle("ativa");
-
-            if (mensagem.classList.contains("ativa")) {
-                mensagem.scrollIntoView({ behavior: "smooth" });
-            }
-        });
-    }
-
-    const dataInicio = new Date("2026-01-09T00:00:00");
-
-function atualizarContador() {
-    const agora = new Date();
-    const diferenca = agora - dataInicio;
-
-    if (diferenca < 0) return;
-
-    const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
-    const horas = Math.floor((diferenca / (1000 * 60 * 60)) % 24);
-    const minutos = Math.floor((diferenca / (1000 * 60)) % 60);
-    const segundos = Math.floor((diferenca / 1000) % 60);
-
-    document.getElementById("dias").textContent = String(dias).padStart(2, "0");
-    document.getElementById("horas").textContent = String(horas).padStart(2, "0");
-    document.getElementById("minutos").textContent = String(minutos).padStart(2, "0");
-    document.getElementById("segundos").textContent = String(segundos).padStart(2, "0");
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-setInterval(atualizarContador, 1000);
-atualizarContador();
-
-
-});
-const slidesVideos = document.querySelector(".slides-videos");
-const videos = document.querySelectorAll(".slides-videos video");
-const prevVideo = document.querySelector(".prev-video");
-const nextVideo = document.querySelector(".next-video");
-
-let indexVideo = 0;
-
-function mostrarVideo(i) {
-    if (i >= videos.length) indexVideo = 0;
-    else if (i < 0) indexVideo = videos.length - 1;
-    else indexVideo = i;
-
-    slidesVideos.style.transform = 
-        "translateX(" + (-indexVideo * 100) + "%)";
+body {
+    background: #708D23;
+    color: #fff;
+    text-align: center;
 }
 
-nextVideo.addEventListener("click", () => {
-    mostrarVideo(indexVideo + 1);
-});
+/* HEADER */
 
-prevVideo.addEventListener("click", () => {
-    mostrarVideo(indexVideo - 1);
-});
+header {
+    padding: 60px 20px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+/* SECTIONS PADRÃO */
+
+section {
+    padding: 50px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+/* GALERIA DE FOTOS - COM QUEBRAS DE LINHA */
+
+.galeria {
+    display: flex;
+    flex-wrap: wrap; /* agora quebra linha automaticamente */
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.galeria .foto {
+    flex: 0 1 250px; /* largura fixa, mas flexível */
+    text-align: center;
+}
+
+.galeria img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+}
+
+.galeria img:hover {
+    transform: scale(1.05);
+}
+
+/* HISTÓRIA */
+
+.historia {
+    max-width: 800px;
+    margin: 30px auto;
+    text-align: justify;
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+/* MENSAGEM SECRETA */
+
+.mensagem-secreta {
+    display: none;
+    margin-top: 60px;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    animation: fadeIn 1s ease forwards;
+}
+
+.mensagem-secreta.ativa {
+    display: block;
+}
+
+.segredo {
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* PORQUE EU TE AMO */
+
+.porque {
+    margin-top: 80px;
+}
+
+.porque ul {
+    list-style: none;
+    padding: 0;
+    margin: 40px auto 0 auto;
+    max-width: 700px;
+    text-align: left;
+}
+
+.porque li {
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+/* MENSAGEM FINAL */
+
+.mensagem-final {
+    text-align: center;
+    padding: 60px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+}
+
+.mensagem-final h2 {
+    margin-bottom: 30px;
+}
+
+.mensagem-final p {
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+.mensagem-secreta *,
+.mensagem-final * {
+    color: #000;
+}
+
+/* CONTADOR */
+
+.contador-section {
+    padding: 60px 20px;
+}
+
+.contador-section h2 {
+    margin-bottom: 40px;
+    font-size: 28px;
+}
+
+.contador-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.tempo p {
+    margin-top: 15px;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+}
+
+.circulo {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 3px solid #ff4d88;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    font-weight: 600;
+    color: #ff4d88;
+    margin: 0 auto;
+    transition: 0.3s ease;
+}
+
+.circulo:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(255, 77, 136, 0.4);
+}
+/* ========================= */
+/*   SEÇÃO DE VÍDEOS 9:16   */
+/* ========================= */
+
+.videos {
+    max-width: 100%;
+    padding: 80px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carrossel-videos {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.slides-videos {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slides-videos video {
+    width: 320px;
+    height: 570px;
+    object-fit: cover;
+    border-radius: 20px;
+    flex-shrink: 0;
+    margin: 0 auto;
+    background: #708D23; /* mesma cor do site */
+}
+
