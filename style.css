@@ -184,35 +184,18 @@ h2 {
     transform: scale(1.08);
     box-shadow: 0 0 20px rgba(255, 77, 136, 0.4);
 }
-/* ========================= */
-/*   SEÇÃO DE VÍDEOS 9:16   */
-/* ========================= */
-.videos {
-    max-width: 100%;
-    padding: 80px 0;
+.videos-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center; /* centraliza os vídeos na tela */
+    gap: 20px;               /* espaço entre os vídeos */
+    flex-wrap: nowrap;        /* não quebra linha */
+    margin-top: 40px;
 }
 
-.carrossel-videos {
-    width: 100%;
-    overflow-x: auto; /* permite rolar horizontalmente em telas pequenas */
-    display: flex;
-    gap: 20px;
-    padding: 0 20px;
-}
-
-.slides-videos {
-    display: flex;
-    gap: 20px;
-}
-
-.slides-videos video {
-    width: 320px;   /* largura fixa */
-    height: 570px;  /* altura fixa */
+.videos-container video {
+    width: 320px;   /* tamanho fixo do vídeo */
+    height: 570px;  /* tamanho fixo do vídeo */
     object-fit: cover;
     border-radius: 20px;
-    flex-shrink: 0; /* mantém tamanho mesmo se o container for menor */
-    background: #708D23; /* mesma cor do site */
+    flex-shrink: 0; /* garante que não encolham */
 }
