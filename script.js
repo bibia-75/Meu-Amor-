@@ -22,7 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
     /*            CONTADOR           */
     /* ============================= */
 
-    const dataInicio = new Date("2026-01-09T00:00:00"); // coloque a data oficial aqui
+    const dataInicio = new Date(2026, 0, 9, 0, 0, 0);
+ // coloque a data oficial aqui
 
     const diasEl = document.getElementById("dias");
     const horasEl = document.getElementById("horas");
