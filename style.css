@@ -184,20 +184,35 @@ h2 {
     transform: scale(1.08);
     box-shadow: 0 0 20px rgba(255, 77, 136, 0.4);
 }
-/* VÍDEOS SEM CARROSSEL, alinhados em coluna */
-
-.videos .slides-videos {
+/* ========================= */
+/*   SEÇÃO DE VÍDEOS 9:16   */
+/* ========================= */
+.videos {
+    max-width: 100%;
+    padding: 80px 0;
     display: flex;
-    flex-direction: column; /* empilha os vídeos */
-    gap: 20px;              /* espaço entre eles */
+    flex-direction: column;
     align-items: center;
+}
+
+.carrossel-videos {
     width: 100%;
+    overflow-x: auto; /* permite rolar horizontalmente em telas pequenas */
+    display: flex;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.slides-videos {
+    display: flex;
+    gap: 20px;
 }
 
 .slides-videos video {
-    width: 320px;
-    height: 570px;
+    width: 320px;   /* largura fixa */
+    height: 570px;  /* altura fixa */
     object-fit: cover;
     border-radius: 20px;
-    background: #708D23;
+    flex-shrink: 0; /* mantém tamanho mesmo se o container for menor */
+    background: #708D23; /* mesma cor do site */
 }
