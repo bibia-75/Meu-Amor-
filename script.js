@@ -40,8 +40,6 @@ atualizarContador();
 });
 const slidesVideos = document.querySelector(".slides-videos");
 const videos = document.querySelectorAll(".slides-videos video");
-const prevVideo = document.querySelector(".prev-video");
-const nextVideo = document.querySelector(".next-video");
 
 let indexVideo = 0;
 
