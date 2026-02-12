@@ -46,13 +46,16 @@ h2 {
 }
 
 .galeria .foto {
-    flex: 0 1 250px; /* largura fixa, mas flexível */
-    text-align: center;
+    flex: 0 0 250px; /* largura fixa */
+    height: 400px;   /* altura fixa */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .galeria img {
     width: 100%;
-    height: 400px;
+    height: 100%;
     object-fit: cover;
     border-radius: 20px;
     transition: transform 0.3s ease;
@@ -181,29 +184,14 @@ h2 {
     transform: scale(1.08);
     box-shadow: 0 0 20px rgba(255, 77, 136, 0.4);
 }
-/* ========================= */
-/*   SEÇÃO DE VÍDEOS 9:16   */
-/* ========================= */
+/* VÍDEOS SEM CARROSSEL, alinhados em coluna */
 
-.videos {
-    max-width: 100%;
-    padding: 80px 0;
+.videos .slides-videos {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* empilha os vídeos */
+    gap: 20px;              /* espaço entre eles */
     align-items: center;
-}
-
-.carrossel-videos {
-    position: relative;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.slides-videos {
-    display: flex;
-    transition: transform 0.5s ease;
 }
 
 .slides-videos video {
@@ -211,8 +199,5 @@ h2 {
     height: 570px;
     object-fit: cover;
     border-radius: 20px;
-    flex-shrink: 0;
-    margin: 0 auto;
-    background: #708D23; /* mesma cor do site */
+    background: #708D23;
 }
-
