@@ -46,16 +46,13 @@ h2 {
 }
 
 .galeria .foto {
-    flex: 0 0 250px; /* largura fixa */
-    height: 400px;   /* altura fixa */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    flex: 0 1 250px; /* largura fixa, mas flexível */
+    text-align: center;
 }
 
 .galeria img {
     width: 100%;
-    height: 100%;
+    height: 400px;
     object-fit: cover;
     border-radius: 20px;
     transition: transform 0.3s ease;
@@ -184,18 +181,79 @@ h2 {
     transform: scale(1.08);
     box-shadow: 0 0 20px rgba(255, 77, 136, 0.4);
 }
-.videos-container {
+/* ========================= */
+/*   SEÇÃO DE VÍDEOS 9:16   */
+/* ========================= */
+
+.videos {
+    max-width: 100%;
+    padding: 80px 0;
     display: flex;
-    justify-content: center; /* centraliza os vídeos na tela */
-    gap: 20px;               /* espaço entre os vídeos */
-    flex-wrap: nowrap;        /* não quebra linha */
-    margin-top: 40px;
+    flex-direction: column;
+    align-items: center;
 }
 
-.videos-container video {
-    width: 320px;   /* tamanho fixo do vídeo */
-    height: 570px;  /* tamanho fixo do vídeo */
+.carrossel-videos {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.slides-videos {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slides-videos video {
+    width: 320px;
+    height: 570px;
     object-fit: cover;
     border-radius: 20px;
-    flex-shrink: 0; /* garante que não encolham */
+    flex-shrink: 0;
+    margin: 0 auto;
+    background: #708D23; /* mesma cor do site */
 }
+#botaoSurpresa {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background-color: #ff4d88;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#botaoSurpresa:hover {
+    background-color: #ff77aa;
+}
+.raspadinha-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 50px 20px;
+}
+
+.raspadinha {
+    width: 200px;
+    height: 200px;
+    background-color: #708D23;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: transparent;
+    user-select: none;
+    transition: 0.3s ease;
+}
+
+.raspadinha.revelada {
+    background-color: #708D23;
+    color: #000;
+}
+
